@@ -8,7 +8,8 @@ jobs:
         uses: actions/checkout@v3
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - name: Build the image
-        run: docker build --tag developa:0.0.1 \
+        run: |
+            docker build --tag developa:0.0.1 \
               --build-arg APP_NAME="Teste ARGS" \
               --build-arg APP_URL="http://localhost:8001" \
               --build-arg DB_HOST="localhost" \
