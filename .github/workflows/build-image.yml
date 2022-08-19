@@ -1,0 +1,21 @@
+name: GitHub Actions Demo
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Build the image
+        run: docker build --tag developa:0.0.1 \
+              --build-arg APP_NAME="Teste ARGS" \
+              --build-arg APP_URL="http://localhost:8001" \
+              --build-arg DB_HOST="localhost" \
+              --build-arg DB_PORT="3306" \
+              --build-arg DB_DATABASE="developa" \
+              --build-arg DB_USERNAME="developa" \
+              --build-arg DB_PASSWORD="developa" \
+              --file docker/Dockerfile .
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."
