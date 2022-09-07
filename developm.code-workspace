@@ -1,0 +1,32 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "eslint.alwaysShowStatus": true,
+    "eslint.packageManager": "yarn",
+    "eslint.run": "onSave",
+    "prettier.jsxSingleQuote": true,
+    "editor.formatOnSave": true,
+    "prettier.bracketSameLine": true,
+    "prettier.useEditorConfig": false,
+  },
+  "extensions": {
+    "recommendations": [
+      "dbaeumer.vscode-eslint",
+      "editorconfig.editorconfig",
+      "amiralizadeh9480.laravel-extra-intellisense",
+      "georgykurian.laravel-ide-helper",
+      "xdebug.php-debug",
+      "neilbrayfield.php-docblocker",
+      "bmewburn.vscode-intelephense-client",
+      "mehedidracula.php-namespace-resolver",
+      "esbenp.prettier-vscode",
+      "rexshi.phpdoc-comment-vscode-plugin",
+      "meganrogge.template-string-converter",
+      "Zignd.html-css-class-completion"
+    ]
+  }
+}
