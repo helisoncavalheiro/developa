@@ -12,6 +12,7 @@
     "editor.formatOnSave": true,
     "prettier.bracketSameLine": true,
     "prettier.useEditorConfig": false,
+    "yarn.bin": "sy",
   },
   "extensions": {
     "recommendations": [
