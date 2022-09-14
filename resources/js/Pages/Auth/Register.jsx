@@ -31,6 +31,9 @@ const Register = () => {
               value={data.name}
               onChange={(e) => setData("name", e.target.value)}
             />
+            {errors.name != null && (
+              <p className='text-danger'>{errors.password}</p>
+            )}
           </div>
           <div className='mb-3'>
             <input
@@ -42,6 +45,9 @@ const Register = () => {
               value={data.email}
               onChange={(e) => setData("email", e.target.value)}
             />
+            {errors.email != null && (
+              <p className='text-danger'>{errors.email}</p>
+            )}
           </div>
           <div className='mb-3'>
             <input
@@ -53,6 +59,9 @@ const Register = () => {
               value={data.password}
               onChange={(e) => setData("password", e.target.value)}
             />
+            {errors.password != null && (
+              <p className='text-danger'>{errors.password}</p>
+            )}
           </div>
           <div className='mb-3'>
             <input
@@ -64,6 +73,9 @@ const Register = () => {
               value={data.password_confirmation}
               onChange={(e) => setData("password_confirmation", e.target.value)}
             />
+            {errors.password_confirmation != null && (
+              <p className='text-danger'>{errors.password_confirmation}</p>
+            )}
           </div>
           <div className='text-center'>
             <button
