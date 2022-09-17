@@ -1,0 +1,7 @@
+label.required::after{
+  content: " *";
+  color: var(--bs-red);
+  font-size: 14pt;
+  font-weight: bold;
+  vertical-align: middle;
+}
