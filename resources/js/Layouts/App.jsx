@@ -1,8 +1,5 @@
 import MessageArea from "@/Components/MessageArea/MessageArea";
-import Notification from "@/Components/Notifications/Notification";
-
-import { usePage } from "@inertiajs/inertia-react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from "./Navbar/Navbar";
 
 const Layout = ({ children }) => {
@@ -13,8 +10,8 @@ const Layout = ({ children }) => {
         style={{ height: "100vh" }}>
         <Navbar></Navbar>
         <div className='container-fluid py-4'>
-          <MessageArea />
           {children}
+          <MessageArea />
         </div>
       </main>
     </div>

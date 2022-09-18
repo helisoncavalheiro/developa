@@ -6,7 +6,7 @@ import NotificationMenu from "./NotificationMenu";
 const Navbar = () => {
   return (
     <nav
-      className='navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl bg-primary'
+      className='navbar navbar-main navbar-expand-lg px-0 shadow-none border-radius-xl bg-white'
       id='navbarBlur'
       data-scroll='false'>
       <div className='container-fluid py-1 px-3'>
@@ -27,6 +27,18 @@ const Navbar = () => {
             </div>
           </div>
           <ul className='navbar-nav  justify-content-end '>
+            <li class='nav-item ps-3 d-flex align-items-center'>
+              <a
+                href='javascript:;'
+                class='nav-link text-white p-0'
+                id='iconNavbarSidenav'>
+                <div class='sidenav-toggler-inner'>
+                  <i class='sidenav-toggler-line bg-white'></i>
+                  <i class='sidenav-toggler-line bg-white'></i>
+                  <i class='sidenav-toggler-line bg-white'></i>
+                </div>
+              </a>
+            </li>
             <li className='nav-item dropdown d-flex align-items-center pe-3'>
               <UserMenu />
             </li>

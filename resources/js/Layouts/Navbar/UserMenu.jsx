@@ -11,7 +11,7 @@ export default function UserMenu() {
       <a
         href='#'
         data-bs-toggle='dropdown'
-        className='nav-link text-white font-weight-bold px-0'
+        className='nav-link font-weight-bold px-0'
         id='userMenuDropdown'>
         <i className='fa fa-user me-sm-1'></i>
         <span className='d-sm-inline d-none'>{auth.user.name}</span>

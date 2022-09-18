@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "@inertiajs/inertia-react";
 
-const Dashboard = () => {
+const Dashboard = ({ projects }) => {
   return (
     <div className='row'>
       <div className='card'>
@@ -17,7 +17,11 @@ const Dashboard = () => {
             &nbsp; Novo projeto
           </Link>
         </div>
-        <div className='card-body'></div>
+        <div className='card-body'>
+          <div className='row'>
+            <div className='col-sm-12 col-md-6 col-lg-4'></div>
+          </div>
+        </div>
       </div>
     </div>
   );

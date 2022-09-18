@@ -1,11 +1,6 @@
 import "./bootstrap";
-import "bootstrap";
-import "bootstrap-notify";
-import "chart.js";
-import "perfect-scrollbar";
-import "smooth-scrollbar";
-import "../css/app.css";
-import "./argon-dashboard";
+import * as bootstrap from "bootstrap";
+import "../scss/app.scss";
 
 import React from "react";
 import { render } from "react-dom";
