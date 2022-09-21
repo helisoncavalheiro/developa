@@ -15,8 +15,8 @@ const Login = () => {
   }
   return (
     <div className='card'>
-      <div className='card-header pb-0 text-start'>
-        <h4 className='font-weight-bolder'>Entrar</h4>
+      <div className='card-header text-start'>
+        <h4 className='card-title'>Entrar</h4>
         <p className='mb-0'>Insira seu email e senha para entrar.</p>
       </div>
       <div className='card-body'>
@@ -24,7 +24,7 @@ const Login = () => {
           <div className='mb-3'>
             <input
               type='email'
-              className='form-control form-control-lg'
+              className='form-control'
               placeholder='Email'
               aria-label='Email'
               value={data.email}
@@ -39,7 +39,7 @@ const Login = () => {
           <div className='mb-3'>
             <input
               type='password'
-              className='form-control form-control-lg'
+              className='form-control'
               placeholder='Senha'
               aria-label='Senha'
               value={data.password}
@@ -65,21 +65,19 @@ const Login = () => {
               Lembre-me
             </label>
           </div>
-          <div className='text-center'>
+          <div className='row'>
             <button
               type='submit'
-              className='btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0'>
+              className='btn btn-lg btn-block btn-primary mt-4 mb-0 fw-bold'>
               Entrar
             </button>
           </div>
         </form>
       </div>
-      <div className='card-footer text-center pt-0 px-lg-2 px-1'>
+      <div className='card-footer text-center'>
         <p className='mb-4 text-sm mx-auto'>
           Não possui uma conta?{" "}
-          <Link
-            href='/register'
-            className='text-primary text-gradient font-weight-bold'>
+          <Link href='/register' className='text-primary text-gradient fw-bold'>
             Registrar
           </Link>
         </p>

@@ -16,8 +16,8 @@ const Register = () => {
   }
   return (
     <div className='card'>
-      <div className='card-header text-center pt-4'>
-        <h5>Crie sua conta</h5>
+      <div className='card-header text-center'>
+        <h4 className='card-title'>Crie sua conta</h4>
       </div>
       <div className='card-body'>
         <form role='form' onSubmit={submit}>
@@ -77,17 +77,19 @@ const Register = () => {
               <p className='text-danger'>{errors.password_confirmation}</p>
             )}
           </div>
-          <div className='text-center'>
+          <div className='row'>
             <button
               type='submit'
-              className='btn bg-gradient-dark w-100 my-4 mb-2'>
+              className='btn btn-lg btn-action mt-4 mb-0 fw-bold'>
               Criar conta
             </button>
           </div>
         </form>
-        <p className='text-sm mt-3 mb-0'>
+      </div>
+      <div className='card-footer text-center'>
+        <p className='mb-4 text-sm mx-auto'>
           Já possui uma conta?{" "}
-          <Link href='/login' className='text-dark font-weight-bolder'>
+          <Link href='/login' className='text-primary fw-bold'>
             Entrar
           </Link>
         </p>
