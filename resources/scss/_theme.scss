@@ -1,0 +1,23 @@
+:root {
+  scroll-behavior: smooth;
+}
+
+.main-content {
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.3s;
+  margin-left: 16rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: $primary;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
