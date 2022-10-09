@@ -9,10 +9,7 @@ const Dashboard = ({ projects }) => {
       <div className='card'>
         <div className='card-header d-flex justify-content-between'>
           <h5 className='card-title'>Meus projetos</h5>
-          <Link
-            as='button'
-            href='/projects/new'
-            class='btn bg-gradient-primary '>
+          <Link as='button' href='/projects/new' class='btn btn-primary '>
             <FontAwesomeIcon icon={faPlusCircle} />
             &nbsp; Novo projeto
           </Link>

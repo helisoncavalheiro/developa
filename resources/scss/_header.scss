@@ -1,0 +1,114 @@
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.logo {
+  line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    width: 280px;
+  }
+}
+
+.logo img {
+  max-height: 26px;
+  margin-right: 6px;
+}
+
+.logo span {
+  font-size: 26px;
+  font-weight: 700;
+  color: #012970;
+  font-family: "Nunito", sans-serif;
+}
+
+.header {
+  transition: all 0.5s;
+  // z-index: 997;
+  height: 70px;
+  box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+  background-color: $white;
+  padding-left: 20px;
+}
+
+.nav-header {
+  height: 70px;
+  width: 17.1875rem;
+  display: inline-block;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  z-index: 999;
+}
+
+.nav-control {
+  cursor: pointer;
+  position: absolute;
+  right: -4.0625rem;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  font-size: 1.4rem;
+  padding: 2px 0.5rem 0;
+  border-radius: 2px;
+
+  .hamburger {
+    display: inline-block;
+    left: 0px;
+    position: relative;
+    top: 3px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+    width: 37px;
+
+    .line {
+      background-color: $primary;
+      display: block;
+      height: 2px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      margin-left: auto;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+    }
+    .line:nth-child(1) {
+      width: 20px;
+    }
+    .line:nth-child(2) {
+      width: 26px;
+    }
+    .line:nth-child(3) {
+      width: 22px;
+    }
+  }
+
+  .hamburger.is-active {
+    .line:nth-child(1),
+    .line:nth-child(3) {
+      width: 10px;
+      height: 2px;
+    }
+
+    .line:nth-child(1) {
+      -webkit-transform: translateY(4px) rotate(45deg);
+      transform: translateY(4px) rotate(45deg);
+    }
+
+    .line:nth-child(2) {
+      -webkit-transform: translateX(0px);
+      transform: translateX(0px);
+      width: 22px;
+      height: 2px;
+    }
+
+    .line:nth-child(3) {
+      -webkit-transform: translateY(-4px) rotate(-45deg);
+      transform: translateY(-4px) rotate(-45deg);
+    }
+  }
+}

@@ -1,14 +1,18 @@
 import MessageArea from "@/Components/MessageArea/MessageArea";
 import React from "react";
-import Navbar from "./Navbar/Navbar";
+import { useState } from "react";
+import Header from "./Header/Header";
+import Sidenav from "./Sidenav";
 
 const Layout = ({ children }) => {
   return (
-    <div className='g-sidenav-show bg-gray-100'>
+    <div id='main-wrapper'>
+      <Header />
+      <Sidenav />
       <main
+        id='main'
         className='main-content position-relative border-radius-lg'
         style={{ height: "100vh" }}>
-        <Navbar></Navbar>
         <div className='container-fluid py-4'>
           {children}
           <MessageArea />
