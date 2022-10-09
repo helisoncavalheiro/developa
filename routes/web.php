@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -21,7 +22,7 @@ use Inertia\Inertia;
 
 Route::middleware(['auth', 'web'])->group(function () {
   Route::get('/', function () {
-    return Inertia::render('Projects/Dashboard');
+    return redirect(RouteServiceProvider::HOME);
   });
 
   Route::prefix('projects')->group(function () {
