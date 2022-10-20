@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjectRequest;
+use App\Http\Resources\ProjectResource;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class ProjectController extends Controller
     $projects = Auth::user()->projects;
 
     return Inertia::render("Projects/Dashboard", [
-      "projects" => $projects
+      "projects" => ProjectResource::collection($projects)
     ]);
   }
 
@@ -62,7 +63,9 @@ class ProjectController extends Controller
    */
   public function show(Project $project)
   {
-    //
+    return Inertia::render('Projects/Project', [
+      'project' => new ProjectResource($project)
+    ]);
   }
 
   /**

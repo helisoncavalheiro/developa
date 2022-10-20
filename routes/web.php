@@ -29,6 +29,7 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('/', [ProjectController::class, 'index']);
     Route::post('/', [ProjectController::class, 'store']);
     Route::get('/new', [ProjectController::class, 'form']);
+    Route::get('/{project}', [ProjectController::class, 'show']);
   });
 });
 
