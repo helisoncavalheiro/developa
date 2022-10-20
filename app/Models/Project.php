@@ -21,12 +21,12 @@ class Project extends Model
     return ProjectFactory::new();
   }
 
-  protected $guarded = ["created_at", "updated_at"];
+  protected $fillable = ["id", "name", "description", "owner"];
 
   protected static function booted()
   {
     static::creating(function ($project) {
-      $project->owner = Auth::user()->id;
+      $project->owner_id = Auth::user()->id;
     });
   }
 
@@ -37,6 +37,6 @@ class Project extends Model
    */
   public function owner()
   {
-    return $this->belongsTo(User::class, "owner");
+    return $this->belongsTo(User::class, "owner_id");
   }
 }
