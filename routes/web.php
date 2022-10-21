@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use App\Providers\RouteServiceProvider;
@@ -21,15 +22,11 @@ use Inertia\Inertia;
 
 
 Route::middleware(['auth', 'web'])->group(function () {
-  Route::get('/', function () {
-    return redirect(RouteServiceProvider::HOME);
-  });
-
+  Route::get('/', [HomeController::class, 'dashboard']);
   Route::prefix('projects')->group(function () {
-    Route::get('/', [ProjectController::class, 'index']);
     Route::post('/', [ProjectController::class, 'store']);
     Route::get('/new', [ProjectController::class, 'form']);
-    Route::get('/{project}', [ProjectController::class, 'show']);
+    Route::get('/{project}', [ProjectController::class, 'show'])->can('view', 'project');
   });
 });
 

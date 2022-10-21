@@ -18,11 +18,6 @@ class ProjectController extends Controller
    */
   public function index()
   {
-    $projects = Auth::user()->projects;
-
-    return Inertia::render("Projects/Dashboard", [
-      "projects" => ProjectResource::collection($projects)
-    ]);
   }
 
   public function form()
@@ -41,16 +36,17 @@ class ProjectController extends Controller
     $validated = $request->validated();
 
     try {
-      Project::create($validated);
+      $project = Project::create($validated);
 
-      return redirect("/projects")->with("message", [
+      return redirect("/projects/" . $project->id)->with("message", [
         "type" => "success",
         "content" => "Projeto salvo com suceso!"
       ]);
     } catch (\Throwable $th) {
       return redirect()->back()->with("message", [
         "type" => "error",
-        "content" => "Erro ao salvar o projeto."
+        "content" => "Erro ao salvar o projeto.",
+        "error" => $th->getMessage()
       ]);
     }
   }

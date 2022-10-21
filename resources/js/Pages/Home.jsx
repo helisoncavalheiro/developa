@@ -22,7 +22,7 @@ function ProjectItem({ project }) {
   );
 }
 
-const Dashboard = ({ projects }) => {
+const Home = ({ projects }) => {
   return (
     <div className='row'>
       <div className='card'>
@@ -48,4 +48,4 @@ const Dashboard = ({ projects }) => {
   );
 };
 
-export default Dashboard;
+export default Home;
