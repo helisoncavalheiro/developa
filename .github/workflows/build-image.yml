@@ -34,9 +34,9 @@ jobs:
           key: yarn-${{ hashFiles('yarn.lock') }}
 
       - name: Run yarn
-        run: yarn && yarn dev
+        run: yarn
       - name: Run tests
-        run: ./vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
+        run: yarn dev & ./vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
         env:
           APP_ENV: testing
           
