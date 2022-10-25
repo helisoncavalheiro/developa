@@ -12,6 +12,7 @@
     "editor.formatOnSave": true,
     "prettier.bracketSameLine": true,
     "prettier.useEditorConfig": false,
+    "editor.wordBasedSuggestions": false,
   },
   "extensions": {
     "recommendations": [
@@ -26,7 +27,20 @@
       "esbenp.prettier-vscode",
       "rexshi.phpdoc-comment-vscode-plugin",
       "meganrogge.template-string-converter",
-      "Zignd.html-css-class-completion"
+      "zignd.html-css-class-completion",
+      "mikestead.dotenv",
+      "ryannaddy.laravel-artisan"
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Listen for Xdebug",
+        "type": "php",
+        "request": "launch",
+        "port": 9003
+      }
     ]
   }
 }

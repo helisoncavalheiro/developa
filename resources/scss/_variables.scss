@@ -1,0 +1,13 @@
+$primary: #023e8a;
+$background-color: #f7f7f2;
+$black: #202323;
+$action: #ff8811;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+$custom-colors: (
+  "action": $action,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
