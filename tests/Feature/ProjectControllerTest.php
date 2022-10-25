@@ -11,6 +11,7 @@ use Tests\TestCase;
 
 class ProjectControllerTest extends TestCase
 {
+  use RefreshDatabase;
 
   protected function setUp(): void
   {

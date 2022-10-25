@@ -5,12 +5,14 @@ namespace Tests\Feature;
 // use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Inertia\Testing\Assert;
 use Inertia\Testing\AssertableInertia;
 use Tests\TestCase;
 
 class DashboardTest extends TestCase
 {
+  use RefreshDatabase;
   /**
    * A basic test example.
    *
