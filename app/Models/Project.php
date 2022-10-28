@@ -9,34 +9,34 @@ use Illuminate\Support\Facades\Auth;
 
 class Project extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  /**
-   * Create a new factory instance for the model.
-   *
-   * @return \Iluminate\Database\Eloquent\Factories\Factory;
-   */
-  protected static function newFactory()
-  {
-    return ProjectFactory::new();
-  }
+    /**
+     * Create a new factory instance for the model.
+     *
+     * @return \Iluminate\Database\Eloquent\Factories\Factory;
+     */
+    protected static function newFactory()
+    {
+        return ProjectFactory::new();
+    }
 
-  protected $fillable = ["id", "name", "description", "owner"];
+    protected $fillable = ['id', 'name', 'description', 'owner'];
 
-  protected static function booted()
-  {
-    static::creating(function ($project) {
-      $project->owner_id = Auth::user()->id;
-    });
-  }
+    protected static function booted()
+    {
+        static::creating(function ($project) {
+            $project->owner_id = Auth::user()->id;
+        });
+    }
 
-  /**
-   * Owner relationship between User and Project model.
-   *
-   * @return \Illuminate\Contracts\Database\Query\Builder
-   */
-  public function owner()
-  {
-    return $this->belongsTo(User::class, "owner_id");
-  }
+    /**
+     * Owner relationship between User and Project model.
+     *
+     * @return \Illuminate\Contracts\Database\Query\Builder
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id');
+    }
 }

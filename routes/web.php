@@ -2,11 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProjectController;
-use App\Models\Project;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,15 +17,13 @@ use Inertia\Inertia;
 |
 */
 
-
-
 Route::middleware(['auth', 'web'])->group(function () {
-  Route::get('/', [HomeController::class, 'dashboard']);
-  Route::prefix('projects')->group(function () {
-    Route::post('/', [ProjectController::class, 'store']);
-    Route::get('/new', [ProjectController::class, 'form']);
-    Route::get('/{project}', [ProjectController::class, 'show'])->can('view', 'project');
-  });
+    Route::get('/', [HomeController::class, 'dashboard']);
+    Route::prefix('projects')->group(function () {
+        Route::post('/', [ProjectController::class, 'store']);
+        Route::get('/new', [ProjectController::class, 'form']);
+        Route::get('/{project}', [ProjectController::class, 'show'])->can('view', 'project');
+    });
 });
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

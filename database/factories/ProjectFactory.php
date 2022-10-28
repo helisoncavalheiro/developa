@@ -10,23 +10,23 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProjectFactory extends Factory
 {
-  /**
-   * Corresponding model for the factory.
-   *
-   * @var string
-   */
-  protected $model = Project::class;
+    /**
+     * Corresponding model for the factory.
+     *
+     * @var string
+     */
+    protected $model = Project::class;
 
-  /**
-   * Define the model's default state.
-   *
-   * @return array<string, mixed>
-   */
-  public function definition()
-  {
-    return [
-      'name' => $this->faker->word(),
-      'description' => $this->faker->paragraph()
-    ];
-  }
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition()
+    {
+        return [
+            'name' => $this->faker->word(),
+            'description' => $this->faker->paragraph(),
+        ];
+    }
 }
