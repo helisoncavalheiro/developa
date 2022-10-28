@@ -1,4 +1,4 @@
-[![GitHub Actions Demo](https://github.com/helisoncavalheiro/developm/actions/workflows/build-image.yml/badge.svg)](https://github.com/helisoncavalheiro/developm/actions/workflows/build-image.yml)
+[![CI pipeline](https://github.com/helisoncavalheiro/developm/actions/workflows/CI.yml/badge.svg)](https://github.com/helisoncavalheiro/developm/actions/workflows/CI.yml)
 ![GitHub](https://img.shields.io/github/license/helisoncavalheiro/developm)
 ## About developm
 
