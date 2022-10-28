@@ -1,0 +1,83 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Cache composer dependencies
+        uses: actions/cache@v1
+        with:
+          path: vendor
+          key: composer-${{ hashFiles('composer.lock') }}
+          
+      - name: Run composer install
+        run: php composer.phar install -n --prefer-dist
+        env:
+          APP_ENV: testing
+
+      - name: Prepare Laravel Application
+        run: |
+          cp .env.example .env
+          php artisan key:generate
+      
+      - name: Cache yarn dependencies
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: yarn-${{ hashFiles('yarn.lock') }}
+
+      - name: Run yarn
+        run: yarn && yarn build
+      - name: Run tests
+        run: ./vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
+        env:
+          APP_ENV: testing
+          XDEBUG_MODE: coverage
+          
+      - name: Code Coverage Report
+        uses: irongut/CodeCoverageSummary@v1.3.0
+        with:
+          filename: phpunit-coverage.xml
+          badge: true
+          fail_below_min: true
+          format: markdown
+          hide_branch_rate: false
+          hide_complexity: true
+          indicators: true
+          output: both
+          thresholds: '60 80'
+
+      - name: Add Coverage PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        if: github.event_name == 'pull_request'
+        with:
+          recreate: true
+          path: code-coverage-results.md
+          
+  build:
+    name: Builds production image
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - name: Build the image
+        run: |
+            docker build --tag developa:0.0.1 \
+              --build-arg APP_NAME="Teste ARGS" \
+              --build-arg APP_URL="http://localhost:8001" \
+              --build-arg DB_HOST="localhost" \
+              --build-arg DB_PORT="3306" \
+              --build-arg DB_DATABASE="developa" \
+              --build-arg DB_USERNAME="developa" \
+              --build-arg DB_PASSWORD="developa" \
+              --file docker/Dockerfile .
+
+      - run: echo "🍏 This job's status is ${{ job.status }}."

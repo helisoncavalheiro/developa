@@ -29,8 +29,6 @@ WORKDIR /var/www/html
 
 COPY --chown=www:www-data . .
 
-RUN rm .env
-
 RUN echo "APP_NAME='${APP_NAME}'" >> .env && \
 echo "APP_ENV=production" >> .env && \
 echo "APP_KEY=" >> .env && \
