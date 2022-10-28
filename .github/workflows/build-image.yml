@@ -34,11 +34,12 @@ jobs:
           key: yarn-${{ hashFiles('yarn.lock') }}
 
       - name: Run yarn
-        run: yarn
+        run: yarn && yarn build
       - name: Run tests
-        run: yarn dev & ./vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
+        run: ./vendor/bin/phpunit --do-not-cache-result --log-junit phpunit-report.xml --coverage-cobertura phpunit-coverage.xml --coverage-text --colors=never
         env:
           APP_ENV: testing
+          XDEBUG_MODE: coverage
           
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
