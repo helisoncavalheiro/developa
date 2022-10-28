@@ -1,9 +1,9 @@
-name: GitHub Actions Demo
+name: CI pipeline
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   test:
     name: Run tests
@@ -16,7 +16,7 @@ jobs:
         with:
           path: vendor
           key: composer-${{ hashFiles('composer.lock') }}
-          
+
       - name: Run composer install
         run: php composer.phar install -n --prefer-dist
         env:
@@ -26,7 +26,7 @@ jobs:
         run: |
           cp .env.example .env
           php artisan key:generate
-      
+
       - name: Cache yarn dependencies
         uses: actions/cache@v1
         with:
@@ -40,7 +40,7 @@ jobs:
         env:
           APP_ENV: testing
           XDEBUG_MODE: coverage
-          
+
       - name: Code Coverage Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
@@ -52,7 +52,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '60 80'
+          thresholds: "60 80"
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
@@ -60,7 +60,7 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
-          
+
   build:
     name: Builds production image
     runs-on: ubuntu-latest
@@ -70,14 +70,14 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - name: Build the image
         run: |
-            docker build --tag developa:0.0.1 \
-              --build-arg APP_NAME="Teste ARGS" \
-              --build-arg APP_URL="http://localhost:8001" \
-              --build-arg DB_HOST="localhost" \
-              --build-arg DB_PORT="3306" \
-              --build-arg DB_DATABASE="developa" \
-              --build-arg DB_USERNAME="developa" \
-              --build-arg DB_PASSWORD="developa" \
-              --file docker/Dockerfile .
+          docker build --tag developa:0.0.1 \
+            --build-arg APP_NAME="Teste ARGS" \
+            --build-arg APP_URL="http://localhost:8001" \
+            --build-arg DB_HOST="localhost" \
+            --build-arg DB_PORT="3306" \
+            --build-arg DB_DATABASE="developa" \
+            --build-arg DB_USERNAME="developa" \
+            --build-arg DB_PASSWORD="developa" \
+            --file docker/Dockerfile .
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
