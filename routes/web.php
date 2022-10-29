@@ -23,6 +23,8 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::post('/', [ProjectController::class, 'store']);
         Route::get('/new', [ProjectController::class, 'form']);
         Route::get('/{project}', [ProjectController::class, 'show'])->can('view', 'project');
+        Route::prefix('cards')->group(function () {
+        });
     });
 });
 
